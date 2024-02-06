@@ -1,4 +1,3 @@
-import re
 from datetime import datetime
 
 # Створюємо функцію для обчислення кількості днів між датами
