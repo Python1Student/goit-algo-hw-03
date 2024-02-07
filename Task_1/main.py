@@ -10,8 +10,6 @@ def get_days_from_today(date: str) -> None:
     # Рахуємо скільки днів між двома датами
     result = abs(date_today.toordinal() - date_time.toordinal())
 
-    print(date_time, date_today)
-
     # Виводимо відповідь
     print(f'The difference between {date_time.strftime('%d %B %Y')} and today\'s date is {result} days')
 
