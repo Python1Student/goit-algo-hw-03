@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # Створюємо функцію для обчислення кількості днів між датами
 def get_days_from_today(date: str) -> None:
