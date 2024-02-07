@@ -1,8 +1,17 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Створюємо функцію для обчислення кількості днів між датами
-def get_days_from_today(date):
-    pass
+def get_days_from_today(date: str) -> None:
+    # Перетворюємо рядок в обьєкт datetime
+    date_time = datetime.strptime(date_input, '%Y-%m-%d')
+    # Задаємо сьогоднішню дату
+    date_today =  datetime.today()
+    
+    # Рахуємо скільки днів між двома датами
+    result = abs(date_today - date_time)
+
+    # Виводимо відповідь
+    print(f'The difference between {date_time.strftime('%d %B %Y')} and today\'s date is {result.days} days')
 
 # Робимо для того шоб потім нормально зупинити цикл
 condition = True
