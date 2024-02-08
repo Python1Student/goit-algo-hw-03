@@ -30,13 +30,16 @@ while condition:
         # Отримуємо значення з клавіатри
         input_data = input(f'{key}: ')
 
-        # Перевіряємо чи введені числа якщо ні присвоюємо 0
+        # Перевіряємо чи введено число якщо ні присвоюємо 0
         dict_input[key] = int(input_data) if input_data.isdigit() else 0
 
+    # перевіряємо числа чи підходять вони по критеріям
     if dict_input['min'] < 1 or dict_input['max'] > 1000 or dict_input['quantity'] > dict_input['max'] or dict_input['min'] > dict_input['max']:
         print('Wrong numbers!')
         continue
     
+    # Викликаємо функцію і воводим її результат
     print(get_numbers_ticket(**dict_input))
+    # Ставимо False щоб програма більше не повторювалася
     condition = False
             
