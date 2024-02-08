@@ -22,13 +22,12 @@ while condition:
     # Отримуємо ввод з клавіатури
     date_input = input('>>> ')
 
-    # Перевіряємо чи правильно ввів користувач дату
-    try: datetime.strptime(date_input, '%Y-%m-%d')
+    # Перевіряємо чи правильно ввів користувач дату викликаючи функцію обчислення
+    try: 
+        get_days_from_today(date_input)
     except: 
         print('Wrong date!')
         continue
     
     # Ставимо False шоб більше не повторювався цикл перевірки
     condition = False
-    # Нарешті викликаємо функцію для обчислення
-    get_days_from_today(date_input)
