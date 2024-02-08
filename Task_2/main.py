@@ -33,7 +33,7 @@ while condition:
         # Перевіряємо чи введено число якщо ні присвоюємо 0
         dict_input[key] = int(input_data) if input_data.isdigit() else 0
 
-    # перевіряємо числа чи підходять вони по критеріям
+    # Перевіряємо числа чи підходять вони по критеріям
     if dict_input['min'] < 1 or dict_input['max'] > 1000 or dict_input['quantity'] > dict_input['max'] or dict_input['min'] > dict_input['max']:
         print('Wrong numbers!')
         continue
