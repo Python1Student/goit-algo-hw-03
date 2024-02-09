@@ -10,7 +10,7 @@ def normalize_phone(phone_number: str) -> str:
     ukraine_index = '380'
     find_ukraine_index = re.search(ukraine_index, formated_number)
     
-    if find_ukraine_index.span == (0, 3):
+    if find_ukraine_index and find_ukraine_index.span == (0, 3):
         formated_number = '+' + formated_number
     else: formated_number = '+38' + formated_number
     
