@@ -13,7 +13,7 @@ def get_upcoming_birthdays(users: list) -> list:
 
     # Створюємо цикл в якому ми перебираємо кожний елемент переданого списку 
     for user in users:
-        key, value = user
+        key, value = **user
         date_time_bd = datetime.strptime(value, '%Y.%m.%d').date()
         birthday = datetime(year=today.year, month=date_time_bd.month, day=date_time_bd.day).date()
 
