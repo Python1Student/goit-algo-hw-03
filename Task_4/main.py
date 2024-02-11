@@ -1,5 +1,8 @@
 from datetime import datetime, timedelta, date
 from time import localtime, time
+import os
+
+os.system('cls')
 
 # Створюємо функцію 
 def get_upcoming_birthdays(users: list) -> list:
@@ -9,7 +12,7 @@ def get_upcoming_birthdays(users: list) -> list:
 
     # Створюємо змінну today для того шоб позначити сьогоднішню дату
     today = datetime.today().date()
-    today_year_day = list(localtime(time()))[7]
+    today_year_day = today.timetuple().tm_yday
 
     # Створюємо цикл в якому ми перебираємо кожний словник переданого списку 
     for user in users:
@@ -20,23 +23,20 @@ def get_upcoming_birthdays(users: list) -> list:
         # Робимо з дати народження об'єкт datetime
         date_time_bd = datetime.strptime(date_of_birth, '%Y.%m.%d').date()
         # Створюємо змінну яка буде дорівнювати даті народження але цього року
-        birthday            = datetime(year=today.year, month=date_time_bd.month, day=date_time_bd.day)
-        birthday_next_year  = datetime(year=today.year + 1, month=date_time_bd.month, day=date_time_bd.day)
-        birthday_year_day   = list(localtime(datetime.timestamp(birthday)))[7]
-        congratulating_date_next_year = datetime.strftime(birthday_next_year, '%Y.%m.%d')
-        congratulating_date = datetime.strftime(birthday, '%Y.%m.%d')
+        birthday          = datetime(year=today.year, month=date_time_bd.month, day=date_time_bd.day)
+        birthday_year_day = birthday.timetuple().tm_yday
 
 		# Перевіряємо чи вже було день народження
         if birthday_year_day - today_year_day <= 7 and birthday_year_day - today_year_day >= 0:
             while birthday.weekday() in (5, 6):
                 birthday += timedelta(days=1)
-            upcoming_birthdays.append({'name': name, 'congratulating_date': congratulating_date})
+            upcoming_birthdays.append({'name': name, 'congratulating_date': datetime.strftime(birthday, '%Y.%m.%d')})
 
         elif birthday_year_day - today_year_day > 7:
-            birthdays.append({'name': name, 'congratulating_date': congratulating_date})
+            birthdays.append({'name': name, 'congratulating_date': datetime.strftime(birthday, '%Y.%m.%d')})
 
         elif birthday_year_day - today_year_day < 0:
-            birthdays.append({'name': name, 'congratulating_date': congratulating_date_next_year})
+            birthdays.append({'name': name, 'congratulating_date': datetime.strftime(birthday.replace(year=birthday.year+1), '%Y.%m.%d')})
 
     return upcoming_birthdays, birthdays
 
