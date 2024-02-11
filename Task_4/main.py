@@ -23,7 +23,8 @@ def get_upcoming_birthdays(users: list) -> list:
         birthday            = datetime(year=today.year, month=date_time_bd.month, day=date_time_bd.day)
         birthday_next_year  = datetime(year=today.year + 1, month=date_time_bd.month, day=date_time_bd.day)
         birthday_year_day   = list(localtime(datetime.timestamp(birthday)))[7]
-        congratulating_date = datetime.strftime(birthday_next_year, '%Y.%m.%d')
+        congratulating_date_next_year = datetime.strftime(birthday_next_year, '%Y.%m.%d')
+        congratulating_date = datetime.strftime(birthday, '%Y.%m.%d')
 
 		# Перевіряємо чи вже було день народження
         if birthday_year_day - today_year_day <= 7 and birthday_year_day - today_year_day >= 0:
@@ -35,7 +36,7 @@ def get_upcoming_birthdays(users: list) -> list:
             birthdays.append({'name': name, 'congratulating_date': congratulating_date})
 
         elif birthday_year_day - today_year_day < 0:
-            birthdays.append({'name': name, 'congratulating_date': congratulating_date})
+            birthdays.append({'name': name, 'congratulating_date': congratulating_date_next_year})
 
     return upcoming_birthdays, birthdays
 
