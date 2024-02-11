@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, date
 from time import localtime, time
 import os
 
+# Для того щоб не було видно попередні виклики програми
 os.system('cls')
 
 # Створюємо функцію 
@@ -12,6 +13,7 @@ def get_upcoming_birthdays(users: list) -> list:
 
     # Створюємо змінну today для того шоб позначити сьогоднішню дату
     today          = datetime.today().date()
+    # І змінну today_year_day щоб позначити який сьогодні день в цьому році
     today_year_day = today.timetuple().tm_yday
 
     # Створюємо цикл в якому ми перебираємо кожний словник переданого списку 
@@ -35,7 +37,7 @@ def get_upcoming_birthdays(users: list) -> list:
             birthdays.append({'name': name, 
                               'congratulating_date': datetime.strftime(birthday, '%Y.%m.%d')})
 
-        elif birthday_year_day - today_year_day < 0:
+        else:
             birthdays.append({'name': name, 
                               'congratulating_date': datetime.strftime(birthday.replace(year=birthday.year+1), '%Y.%m.%d')})
 
