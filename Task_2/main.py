@@ -12,7 +12,7 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list:
         lotory_set.add(randint(min, max))
     
     # З множини робимо список та повертаємо
-    return list(lotory_set)
+    return sorted(list(lotory_set))
 
 
 # Робимо для того шоб потім нормально зупинити цикл

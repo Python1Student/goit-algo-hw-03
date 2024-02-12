@@ -66,7 +66,7 @@ print('Your formatted number:', normalize_phone([phone_number]))
 #     '+3806 2r 342 50421821', 
 #     '+11033092187', 
 #     '+38031231 t1rt  9221737', 
-#     '+817261 r1r3g2325treg  420034']
+#     '+817261 r1r3g2325treg ']
 
 # # Викликаємо та виводимо результат функції
 # print('Your formatted numbers:', normalize_phone(phone_numbers))
