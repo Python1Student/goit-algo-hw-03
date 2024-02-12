@@ -3,7 +3,7 @@ from datetime import datetime
 # Створюємо функцію для обчислення кількості днів між датами
 def get_days_from_today(date: str) -> None:
     # Перетворюємо рядок в обьєкт datetime
-    date_time = datetime.strptime(date_input, '%Y-%m-%d')
+    date_time = datetime.strptime(date, '%Y-%m-%d')
     # Задаємо сьогоднішню дату
     date_today =  datetime.today()
     
