@@ -5,13 +5,15 @@ def normalize_phone(phone_numbers: list) -> list:
 
     # Створюємо список в якому будуть готові номери
     formated_numbers = []
+    
 
     # Перебираємо кожний номер з сирих номерів
-    for phone_number in phone_numbers:
+    for phone_number in phone_numbers: 
         # Створюємо змінну зі значенням яке шукаємо а саме все окрім "+" та цифр
         pattern = r'[^\+\d]'
         # Створюємо змінну зі значенням на яке будемо заміняти
         replacement = r''
+
         # Видаляємо все з номера окрім "+" та цифр
         formated_number = re.sub(pattern, replacement, phone_number)
 
@@ -44,7 +46,7 @@ print('Your formatted number:', normalize_phone([phone_number]))
 
 
 # Можна розкоментувати для того щоб швидко перевірити
-# # Список номерів
+# Список номерів
 # phone_numbers = [
 #     "067\\t123 4567",
 #     "(095) 234-5678\\n",
