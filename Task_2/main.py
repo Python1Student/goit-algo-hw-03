@@ -19,11 +19,12 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list:
 condition = True
 # Пишемо за межами циклу шоб не повторювалося
 print('Enter tiket info: ')
+# Створюємо словник
+dict_input = {'min': None, 'max': None, 'quantity': None}
 
 # Цикл для того щоб програма не закінчувалася при вводі не правильних данних
 while condition:
     # Створюємо словник в циклі щоб якщо ввели не так то неправильні значення зникли
-    dict_input = {'min': None, 'max': None, 'quantity': None}
 
     # Цикл для заповнення словника
     for key in dict_input.keys():
