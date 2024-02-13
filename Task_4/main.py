@@ -1,9 +1,6 @@
 from datetime import datetime, timedelta, date
 from time import localtime, time
-import os
 
-# Для того щоб не було видно попередні виклики програми
-os.system('cls')
 
 # Створюємо функцію 
 def get_upcoming_birthdays(users: list) -> list:
